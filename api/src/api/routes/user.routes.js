@@ -16,7 +16,7 @@ router.get("/:user_id", async (req, res) => {
 
 //GET ALL USERS
 router.get("/", async (req, res) => {
-  const user_id = req.query.user_id;
+  const user_id = req.query.user_id.toString();
   try {
     let users;
     if (user_id) {

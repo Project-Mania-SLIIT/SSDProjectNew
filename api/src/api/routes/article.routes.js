@@ -4,6 +4,8 @@ let {Article,validateArticle} = require("../models/article");
 const multer = require('multer');
 const { v4: uuidv4 } = require('uuid');
 let path = require('path');
+const escapeStringReg = require('escape-string-regexp');
+
 
 
 
@@ -116,7 +118,7 @@ router.get("/all",async (req, res) => {
 
 
 router.get("/search",async (req, res) => {
-    var search = new RegExp(req.query.search);
+    const search = new RegExp(escapeStringReg(req.query.search));
     
 
     try {
